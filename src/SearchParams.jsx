@@ -7,7 +7,7 @@ const SearchParams = () => {
     <select name="" id="">
       {location.map((city, idx) => (
         <option value={location} key={idx}>
-          {city.toUpperCase()}
+          {`${city.toUpperCase()}`}
         </option>
       ))}
     </select>
