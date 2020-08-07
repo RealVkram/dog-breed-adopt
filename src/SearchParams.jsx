@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SearchParams = () => {
-  const location = ["Seattle WA", "Lagos Ng", "Asaba Delta"];
+  const [location, updateLocation] = useState("Seattle WA");
 
   return (
-    <select name="" id="">
-      {location.map((city, idx) => (
-        <option value={location} key={idx}>
-          {`${city.toUpperCase()}`}
-        </option>
-      ))}
-    </select>
+    <div className="search-params">
+      <form>
+        <label htmlFor="location">
+          Location
+          <input
+            type="text"
+            id="location"
+            value={location}
+            placeholder="Location"
+            onChange={(e) => updateLocation(e.target.value)}
+          />
+        </label>
+        <button>Submit</button>
+      </form>
+    </div>
   );
 };
 
