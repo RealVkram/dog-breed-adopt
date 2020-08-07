@@ -21,6 +21,7 @@ body {
   margin: 0px 25px 0px 0px;
   padding: 35px 15px 15px 15px;
   border-radius: 5px;
+  border: thick outset #ec0d1f;
   float: left;
 }
 
