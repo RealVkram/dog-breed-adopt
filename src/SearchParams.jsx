@@ -1,11 +1,25 @@
-import React, { useState } from "react";
-import { ANIMALS } from "@frontendmasters/pet";
+import React, { useState, useEffect } from "react";
+import pet, { ANIMALS } from "@frontendmasters/pet";
+import useDropDown from "./useDropDown";
 
 const SearchParams = () => {
-  const [location, updateLocation] = useState("Seattle WA");
-  const [animal, setAnimal] = useState("Dog");
-  const [breed, setBreed] = useState("");
   const [breeds, setBreeds] = useState([]);
+  const [location, setLocation] = useState("Seattle WA");
+  const [animal, AnimalDropDown] = useDropDown("Animal", "dog", ANIMALS);
+  const [breed, BreedDropDOWn, setBreed] = useDropDown("Breed", "", breeds);
+
+  useEffect(() => {
+    setBreeds([]);
+    setBreed("");
+
+    pet
+      .breeds(animal)
+      .then(({ breeds }) => {
+        const breedType = breeds.map(({ name }) => name);
+        setBreeds(breedType);
+      })
+      .catch(console.error);
+  }, [animal, setBreeds, setBreed]);
 
   return (
     <div className="search-params">
@@ -17,42 +31,11 @@ const SearchParams = () => {
             id="location"
             value={location}
             placeholder="Location"
-            onChange={(e) => updateLocation(e.target.value)}
+            onChange={(e) => setLocation(e.target.value)}
           />
         </label>
-        <label htmlFor="animal">
-          <b>Animal</b>
-          <select
-            id="animal"
-            value={animal}
-            onChange={(e) => setAnimal(e.target.value)}
-            onBlur={(e) => setAnimal(e.target.value)}
-          >
-            <option value="All">All</option>
-            {ANIMALS.map((val, idx) => (
-              <option value={val} key={idx}>
-                {val}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="breed">
-          <b>Breed</b>
-          <select
-            value={breed}
-            id="breed"
-            onChange={(e) => setBreed(e.target.value)}
-            onBlur={(e) => setBreed(e.target.value)}
-            disabled={!breeds.length}
-          >
-            <option value="All">All</option>
-            {breeds.map((val, idx) => (
-              <option value={val} key={idx}>
-                {val}
-              </option>
-            ))}
-          </select>
-        </label>
+        <AnimalDropDown />
+        <BreedDropDOWn />
         <button>Submit</button>
       </form>
     </div>

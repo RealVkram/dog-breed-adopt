@@ -4,7 +4,7 @@ const useDropDown = (label, defaultState, options) => {
   const [state, setState] = useState(defaultState);
   const id = `use-dropdown-${label.replace(" ", "").toLowerCase()}`;
 
-  const dropdown = () => (
+  const dropDown = () => (
     <label htmlFor={id}>
       {label}
       <select
@@ -14,7 +14,7 @@ const useDropDown = (label, defaultState, options) => {
         onBlur={(e) => setState(e.target.value)}
         disabled={!options.length}
       >
-        <option value="All">All</option>
+        <option>All</option>
         {options.map((val, idx) => (
           <option value={val} key={idx}>
             {val}
@@ -23,6 +23,8 @@ const useDropDown = (label, defaultState, options) => {
       </select>
     </label>
   );
+
+  return [state, dropDown, setState];
 };
 
 export default useDropDown;
