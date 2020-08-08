@@ -10,6 +10,7 @@ const VideoBackground = () => {
         loop
         playsinline
         muted
+        poster="polina.jpg"
       ></video>
 
       <header className="viewport-header">
