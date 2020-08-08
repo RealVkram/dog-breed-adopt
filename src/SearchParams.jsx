@@ -36,7 +36,23 @@ const SearchParams = () => {
         </label>
         <AnimalDropDown />
         <BreedDropDOWn />
-        <button>Submit</button>
+        <div
+          style={{
+            display: "flex",
+            flexFlow: "row-wrap",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <button>Sign In</button>
+          <button
+            style={{
+              backgroundColor: "grey",
+              border: "none",
+            }}
+          >
+            Sign Up
+          </button>
+        </div>
       </form>
     </div>
   );
