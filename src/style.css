@@ -16,12 +16,12 @@ body {
 }
 
 .search-params form {
-  background-color: #d9c148;
+  background-color: #abe49c;
   width: 360px;
   margin: 0px 25px 0px 0px;
   padding: 35px 15px 15px 15px;
   border-radius: 5px;
-  border: thick outset #ec0d1f;
+  border: thick outset #059744;
   float: left;
 }
 
@@ -88,9 +88,9 @@ body {
 header > a,
 #root > div > h1 {
   display: inline-block;
-  background-image: url(http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png);
-  width: 279px;
-  height: 76px;
+  background-image: url(http://cchub.9mobile.com.ng:83/img/logo.png);
+  width: 500px;
+  height: 90px;
   overflow: hidden;
   text-indent: -9999px;
 }
@@ -186,7 +186,7 @@ header {
 .search-params button,
 #modal button,
 .details button {
-  background-color: #ad343e;
+  background-color: #021d18;
   padding: 5px 25px;
   color: white;
   font-size: 18px;

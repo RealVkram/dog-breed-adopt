@@ -19,7 +19,7 @@ const SearchParams = () => {
         setBreeds(breedType);
       })
       .catch(console.error);
-  }, [animal, setBreeds, setBreed]);
+  }, [animal, setBreed, setBreeds]);
 
   return (
     <div className="search-params">
