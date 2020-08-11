@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
+import Results from "./Results";
 import useDropDown from "./useDropDown";
 import { motion } from "framer-motion";
+// import { VideoBackground } from "./BackgroundVideo.jsx";
 
 const SearchParams = () => {
   const [breeds, setBreeds] = useState([]);
@@ -86,6 +88,7 @@ const SearchParams = () => {
         {/* </div> */}
       </form>
       <Results pets={pets} />
+      {/* <VideoBackground /> */}
     </div>
   );
 };
