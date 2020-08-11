@@ -8,7 +8,7 @@ const VideoBackground = () => {
         src="https://encrypted-vtbn3.gstatic.com/video?q=tbn:ANd9GcQ0N3LZWsGqu2m73UPqteKYLcRSHnN2TrVYGj_-UjjVNPfVGxw-"
         autoPlay
         loop
-        playsinline
+        playsInline
         muted
         poster="polina.jpg"
       ></video>
