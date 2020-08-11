@@ -2,13 +2,19 @@ import React from "react";
 import { render } from "react-dom";
 import SearchParams from "./SearchParams.jsx";
 
-// import { Router } from "@reach/router";
+import { Router, Link } from "@reach/router";
+import Details from "./Details.js";
 
 const App = () => {
   return (
     <div>
-      <h1 id="header">I P M</h1>
-      <SearchParams path="/" />
+      <header style={{ marginLeft: 0 }}>
+        <Link to="/">IPM</Link>
+      </header>
+      <Router>
+        <SearchParams path="/" />
+        <Details path="/Details/:id" />
+      </Router>
     </div>
   );
 };
