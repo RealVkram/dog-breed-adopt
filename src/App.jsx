@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import SearchParams from "./SearchParams.jsx";
 
 import { Router, Link } from "@reach/router";
-import Details from "./details.js";
+import Details from "./Details.js";
 
 const App = () => {
   return (

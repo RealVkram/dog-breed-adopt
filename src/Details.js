@@ -15,8 +15,9 @@ class Details extends Component {
   // };
 
   componentDidMount() {
+    const { id } = this.props;
     pet
-      .animal(this.props.id)
+      .animal(id)
       .then(({ animal }) => {
         this.setState({
           name: animal.name,
