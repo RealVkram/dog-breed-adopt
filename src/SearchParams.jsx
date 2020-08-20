@@ -24,18 +24,25 @@ const SearchParams = () => {
     setPets(animals || []);
   }
 
-  useEffect(() => {
-    setBreeds([]);
-    setBreed("");
+  useEffect(
+    () => {
+      setBreeds([]);
+      setBreed("");
 
-    pet
-      .breeds(animal)
-      .then(({ breeds: apiBreeds }) => {
-        const breedType = apiBreeds.map(({ name }) => name);
-        setBreeds(breedType);
-      })
-      .catch(console.error);
-  }, [animal, setBreed, setBreeds]);
+      pet
+        .breeds(animal)
+        .then(({ breeds: apiBreeds }) => {
+          const breedType = apiBreeds.map(({ name }) => name);
+          setBreeds(breedType);
+        })
+        .catch(console.error);
+    },
+    [
+      animal,
+      setBreed,
+      setBreeds,
+    ] /*use the dependecies as an Array, reactjs.docs*/
+  );
 
   return (
     <div className="search-params">
@@ -79,7 +86,7 @@ const SearchParams = () => {
               height: "50px",
               textAlign: "center",
               boxShadow: "0 1px 3px hsla(0 0% 0% .2)",
-              letterSpacing: ".1em",
+              letterSpacing: "0.1em",
             }}
           >
             Submit

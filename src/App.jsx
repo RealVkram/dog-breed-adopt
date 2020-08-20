@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import SearchParams from "./SearchParams.jsx";
 
 import { Router, Link } from "@reach/router";
-import Details from "./Details.js";
+import Details from "./details.js";
 
 const App = () => {
   return (
@@ -13,10 +13,13 @@ const App = () => {
       </header>
       <Router>
         <SearchParams path="/" />
-        <Details path="/Details/:id" />
+        <Details path="/details/:id" />
       </Router>
     </div>
   );
 };
 
 render(<App />, document.getElementById("root"));
+if (module.hot) {
+  module.hot.accept();
+}
