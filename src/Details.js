@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
+import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
 class Details extends Component {
   constructor(props) {
@@ -16,6 +18,10 @@ class Details extends Component {
 
   componentDidMount() {
     const { id } = this.props;
+
+    //throws error from the API by the errorboundary wrapped around the details component
+    throw new Error("error here");
+
     pet
       .animal(id)
       .then(({ animal }) => {
@@ -42,14 +48,16 @@ class Details extends Component {
       description,
       location,
       breed,
+      media,
     } = this.state; /*destructured from the initial state and the setstate component */
 
     if (loading) {
-      return <h1>Loading this component</h1>;
+      return <h1>Loading...</h1>;
     }
 
     return (
       <div className="details">
+        <Carousel media={media} />
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
@@ -61,4 +69,10 @@ class Details extends Component {
   }
 }
 
-export default Details;
+export default function DetailsWithErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}

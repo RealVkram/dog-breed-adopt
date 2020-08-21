@@ -21,7 +21,7 @@ class Carousel extends Component {
 
     return { photos };
   }
-  //DOM API === event.target.dataset.value MDN docs
+  //DOM API === event.target.dataset.value check MDN docs fr more details
 
   handleIndexClick(event) {
     this.setState({
@@ -33,7 +33,7 @@ class Carousel extends Component {
     const { photos, active } = this.state;
 
     return (
-      <div className="carousel">
+      <div className="carousel-smaller">
         <img src={photos[active]} alt="animal" />
         <div>
           {photos.map((photo, idx) => (
