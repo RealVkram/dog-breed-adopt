@@ -4,10 +4,29 @@ class Carousel extends Component {
   constructor() {
     super();
 
+    this.handleIndexClick = this.handleIndexClick.bind(this);
+
     this.state = {
       photos: [],
       active: 0,
     };
+  }
+  //special react methods that takes in a set of props and gives a new state
+  static getDerivedStateFromProps({ media }) {
+    let photos = ["http://placecorgi.com/600/600"];
+
+    if (media.length) {
+      photos = media.map(({ large }) => large);
+    }
+
+    return { photos };
+  }
+  //DOM API === event.target.dataset.value MDN docs
+
+  handleIndexClick(event) {
+    this.setState({
+      active: +event.target.dataset.index,
+    });
   }
 
   render() {
