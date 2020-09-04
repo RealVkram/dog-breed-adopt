@@ -20,7 +20,7 @@ class Details extends Component {
     const { id } = this.props;
 
     //throws error from the API by the errorboundary wrapped around the details component
-    throw new Error("error here");
+    //throw new Error("error here");
 
     pet
       .animal(id)
