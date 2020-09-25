@@ -12,7 +12,7 @@ const SearchParams = () => {
   const [animal, AnimalDropDown] = useDropDown("Animal", "dog", ANIMALS);
   const [breed, BreedDropDOWn, setBreed] = useDropDown("Breed", "", breeds);
   const [pets, setPets] = useState([]);
-  const [theme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   async function requestPets() {
     try {
@@ -71,6 +71,22 @@ const SearchParams = () => {
         </label>
         <AnimalDropDown />
         <BreedDropDOWn />
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            name=""
+            id=""
+            onChange={(e) => setTheme(e.target.value)}
+            onBlur={(e) => setTheme(e.target.value)}
+          >
+            <option value="peru">Peru</option>
+            <option value="darkblue">Dark Blue</option>
+            <option value="mediumorchid">Medium Orchid</option>
+            <option value="chartreuse">Chartreuse</option>
+            <option value="yellow">Yellow</option>
+          </select>
+        </label>
         {/* <div
           style={{
             display: "flex",
